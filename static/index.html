@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="km">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Khmer Video Translator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<header class="hero">
+  <div class="brand-icon">▶<span>文</span></div>
+  <div>
+    <div class="eyebrow">TOOL • VIDEO • AI</div>
+    <h1>បកប្រែវីដេអូបរទេស<br><span>ទៅជាភាសាខ្មែរ</span></h1>
+    <p>Translate Foreign Videos to Khmer</p>
+    <div class="chips"><b>បកប្រែ</b><b>រហ័ស</b><b>គុណភាពខ្ពស់</b></div>
+  </div>
+</header>
+
+<main class="app-shell">
+  <section class="toolbar">
+    <label class="file-btn">📁 ជ្រើសរើសវីដេអូ
+      <input id="videoInput" type="file" accept="video/*">
+    </label>
+    <label class="file-btn secondary">📝 Load SRT
+      <input id="srtInput" type="file" accept=".srt">
+    </label>
+    <button id="translateBtn" class="primary">✨ Auto Translate → Khmer</button>
+    <button id="saveBtn">💾 Save SRT</button>
+    <button id="renderBtn">🎬 Render Video</button>
+    <span id="status" class="status">Ready</span>
+  </section>
+
+  <section class="workspace">
+    <div class="left-panel">
+      <div class="panel-title">Video Preview</div>
+      <div class="video-wrap">
+        <video id="video" controls></video>
+        <div id="emptyVideo" class="empty">Upload a foreign video<br><small>MP4 / MOV / WebM / MKV</small></div>
+        <div id="caption" class="caption"></div>
+      </div>
+
+      <div class="player-tools">
+        <button id="playBtn">▶ Play</button>
+        <button id="pauseBtn">Ⅱ Pause</button>
+        <label>Font <input id="fontSize" type="range" min="18" max="48" value="26"></label>
+        <label>Opacity <input id="opacity" type="range" min="50" max="100" value="90"></label>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-head"><span>CapCut-style Timeline</span><span id="timeLabel">00:00</span></div>
+        <div id="track" class="track"></div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="panel-title">Subtitle SRT Table & Voice AI Timeline Editor</div>
+      <div class="table-actions">
+        <button id="addBtn">＋ Add Subtitle</button>
+        <button id="extractBtn">Auto Extract (demo)</button>
+        <button id="clearBtn">Clear</button>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Start</th><th>End</th><th>Foreign Text</th><th>Khmer Text</th><th>Voice</th><th></th></tr>
+          </thead>
+          <tbody id="subtitleBody"></tbody>
+        </table>
+      </div>
+      <div class="voice-box">
+        <div><strong>🔊 Khmer Voice Preview</strong><span>Uses browser Speech Synthesis</span></div>
+        <button id="voiceBtn">▶ Speak Selected Subtitle</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-grid">
+    <div>🎵 <strong>Video Audio</strong><small>Original / voice-over workflow</small></div>
+    <div>⚡ <strong>Speed Video</strong><small>Playback and timing controls</small></div>
+    <div>✂️ <strong>Edit Subtitle</strong><small>Timeline + SRT editing</small></div>
+    <div>🌐 <strong>Many Language</strong><small>Source language agnostic</small></div>
+  </section>
+</main>
+
+<footer>Khmer Video Translator • Flask + HTML/CSS/JavaScript • Demo starter</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
